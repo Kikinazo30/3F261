@@ -1,0 +1,35 @@
+@startuml
+skinparam linetype ortho
+title Space Invaders — 30 Clases
+class ObjetoJuego
+class Vector2D
+class Rectangulo
+class Temporizador
+class Configuracion
+class ManejadorEntrada
+class Registrador
+class Jugador
+class JugadorHumano
+class Canon
+class Bala
+class BalaJugador
+class GestorVidas
+class Enemigo
+class AlienA
+class AlienB
+class AlienC
+class OVNI
+class BalaEnemigo
+class FormacionEnemiga
+class Escudo
+class BloqueEscudo
+class Fondo
+class EfectoExplosion
+class DetectorColisiones
+class GestorPuntuacion
+class Nivel
+class GestorSonido
+class Renderizador
+class EstadoJuego
+class JuegoSpaceInvaders
+@enduml
