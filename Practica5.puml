@@ -1,0 +1,115 @@
+@startuml
+class ObjetoJuego
+
+class Cañon{
++ mover()
++ disparar()
+}
+ObjetoJuego <|-- Cañon
+Cañon ..> Vector2D
+
+class Bala{
++ mover()
+}
+ObjetoJuego <|-- Bala
+class BalaJugador
+Bala <|-- BalaJugador
+class BalaEnemigo
+Bala <|-- BalaEnemigo
+
+class Jugador{
+- vidas
++ perderVida()
+}
+class JugadorHumano
+Jugador <|-- JugadorHumano
+JugadorHumano *-- Cañon
+class GestorVidas
+JugadorHumano *-- GestorVidas
+
+class Enemigo{
++ recibirDano()
+}
+ObjetoJuego <|-- Enemigo
+class AlienA
+Enemigo <|-- AlienA
+class AlienB
+Enemigo <|-- AlienB
+class AlienC
+Enemigo <|-- AlienC
+
+class Temporizador
+class FormacionEnemiga{
++ moverPaso()
++ disparar()
+}
+FormacionEnemiga *-- AlienA
+FormacionEnemiga *-- AlienB
+FormacionEnemiga *-- AlienC
+FormacionEnemiga ..> Temporizador
+JuegoSpaceInvaders *-- FormacionEnemiga
+JuegoSpaceInvaders ..> Temporizador
+
+class OVNI{
++ volar()
+}
+ObjetoJuego <|-- OVNI
+JuegoSpaceInvaders *-- OVNI
+
+class Escudo{
++ recibirDaño()
+}
+ObjetoJuego <|-- Escudo
+class BloqueEscudo{
++ golpear()
+}
+ObjetoJuego <|-- BloqueEscudo
+Escudo *-- BloqueEscudo
+JuegoSpaceInvaders *-- Escudo
+
+class Rectangulo
+class Registrador
+class DetectorColisiones
+DetectorColisiones ..> Rectangulo
+DetectorColisiones ..> Registrador
+JuegoSpaceInvaders ..> DetectorColisiones
+
+class Vector2D
+class Renderizador
+Renderizador ..> Vector2D
+JuegoSpaceInvaders ..> Renderizador
+
+class GestorPuntuacion{
++ agregar()
+}
+JuegoSpaceInvaders *-- GestorPuntuacion
+
+class EstadoJuego
+JuegoSpaceInvaders *-- EstadoJuego
+
+class Nivel{
++ cargar()
+}
+JuegoSpaceInvaders *-- Nivel
+
+class GestorSonido{
++ sonarDisparo()
+}
+JuegoSpaceInvaders ..> GestorSonido
+
+class Fondo
+JuegoSpaceInvaders *-- Fondo
+
+class EfectoExplosion{
++ reproducir()
+}
+JuegoSpaceInvaders o-- EfectoExplosion
+
+class Configuracion
+JuegoSpaceInvaders ..> Configuracion
+
+class ManejadorEntrada
+JuegoSpaceInvaders ..> ManejadorEntrada
+
+class JuegoSpaceInvaders
+@enduml
